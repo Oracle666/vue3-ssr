@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "node ./src/server.js",
     "serve": "NODE_ENV=production node ./src/server.js",
-    "build": "npm run build:client && npm run build:server",
+    "build": "eslint . && vue-tsc --noEmit && npm run build:client && npm run build:server",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/main-server.js --outDir dist/server",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix"
+    "lint-fix": "eslint . --fix",
+    "vue-tsc": "vue-tsc --noEmit"
   },
   "dependencies": {
     "express": "^4.21.2",
